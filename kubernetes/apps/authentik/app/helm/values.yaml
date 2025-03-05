@@ -15,8 +15,6 @@ server:
 
 postgresql:
     enabled: true
-    persistence:
-        enabled: true
 
 redis:
     enabled: true
