@@ -26,3 +26,5 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: authentik-values
+    - kind: Secret
+      name: authentik-secret
