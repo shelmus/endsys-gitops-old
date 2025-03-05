@@ -6,4 +6,4 @@ namespace: authentik
 components:
   - ../../components/common
 resources:
-  - ./authentik/ks.yaml
+  - ./ks.yaml
