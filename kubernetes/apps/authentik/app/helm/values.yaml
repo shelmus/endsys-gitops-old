@@ -11,7 +11,7 @@ server:
         ingressClassName: internal
         enabled: true
         hosts:
-          - host: "auth.endsys.cloud"
+          - host: auth.endsys.cloud
             paths:
               - path: /
                 service:
