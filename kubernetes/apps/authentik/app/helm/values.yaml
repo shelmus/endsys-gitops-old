@@ -11,7 +11,7 @@ server:
         ingressClassName: internal
         enabled: true
         hosts:
-          - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
+          - host: "auth.endsys.cloud"
             paths:
               - path: /
                 service:
