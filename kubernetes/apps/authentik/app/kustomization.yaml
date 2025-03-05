@@ -11,3 +11,5 @@ configMapGenerator:
       - values.yaml=./helm/values.yaml
 patchesStrategicMerge:
   - ./secret.sops.yaml
+configurations:
+  - ./helm/kustomizeconfig.yaml
