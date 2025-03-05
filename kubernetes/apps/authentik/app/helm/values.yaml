@@ -1,0 +1,25 @@
+---
+authentik:
+    # This sends anonymous usage-data, stack traces on errors and
+    # performance data to sentry.io, and is fully opt-in
+    error_reporting:
+        enabled: true
+
+server:
+    ingress:
+        # Specify kubernetes ingress controller class name
+        ingressClassName: internal
+        enabled: true
+        hosts:
+          - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: http
+
+postgresql:
+    enabled: true
+
+redis:
+    enabled: true
