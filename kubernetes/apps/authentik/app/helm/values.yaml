@@ -11,12 +11,7 @@ server:
         ingressClassName: internal
         enabled: true
         hosts:
-          - host: auth.endsys.cloud
-            paths:
-              - path: /
-                service:
-                  identifier: app
-                  port: http
+            - authentik.endsys.cloud
 
 postgresql:
     enabled: true
