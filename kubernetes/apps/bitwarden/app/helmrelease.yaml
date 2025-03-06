@@ -5,7 +5,7 @@ kind: HelmRelease
 metadata:
   name: sm-operator
 spec:
-  interval: 1h
+  interval: 12m
   chart:
     spec:
       chart: sm-operator
