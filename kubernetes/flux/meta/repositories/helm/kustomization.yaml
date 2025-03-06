@@ -17,3 +17,6 @@ resources:
   - ./stakater.yaml
   - ./bitwarden.yaml
   - ./rook-ceph.yaml
+  - ./piraeus.yaml
+  - ./csi-driver-nfs.yaml
+  
