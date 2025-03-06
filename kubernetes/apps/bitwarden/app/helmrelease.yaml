@@ -3,12 +3,12 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: bitwarden-smoperator
+  name: bw-sm-operator
 spec:
   interval: 1h
   chart:
     spec:
-      chart: bitwarden
+      chart: sm-operator
       sourceRef:
         kind: HelmRepository
         name: bitwarden
