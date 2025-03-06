@@ -19,4 +19,4 @@ resources:
   - ./rook-ceph.yaml
   - ./piraeus.yaml
   - ./csi-driver-nfs.yaml
-  
+  - ./backube.yaml
