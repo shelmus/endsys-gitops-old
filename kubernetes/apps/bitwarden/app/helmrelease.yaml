@@ -8,10 +8,10 @@ spec:
   interval: 1h
   chart:
     spec:
-      chart: sm-operator
+      chart: bitwarden
       sourceRef:
         kind: HelmRepository
-        name: bitwarden
+        name: sm-operator
         namespace: flux-system
   install:
     remediation:
