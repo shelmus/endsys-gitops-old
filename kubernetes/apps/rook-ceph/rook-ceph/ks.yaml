@@ -10,7 +10,7 @@ spec:
     labels:
       app.kubernetes.io/name: *app
   dependsOn:
-    - name: bw-sm-operator
+    - name: sm-operator
       namespace: bitwarden
   healthChecks:
     - apiVersion: helm.toolkit.fluxcd.io/v2

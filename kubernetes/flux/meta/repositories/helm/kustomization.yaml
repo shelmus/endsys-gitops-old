@@ -15,3 +15,5 @@ resources:
   - ./metrics-server.yaml
   - ./spegel.yaml
   - ./stakater.yaml
+  - ./bitwarden.yaml
+  - ./rook-ceph.yaml
