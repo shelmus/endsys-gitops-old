@@ -3,7 +3,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app bitwarden
+  name: &app bw-sm-operator
   namespace: &namespace bitwarden
 spec:
   commonMetadata:
