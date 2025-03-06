@@ -8,7 +8,7 @@ spec:
   interval: 12m
   chart:
     spec:
-      chart: bitwarden/sm-operator
+      chart: sm-operator
       version: ">=0.1.0-Beta"
       sourceRef:
         kind: HelmRepository
