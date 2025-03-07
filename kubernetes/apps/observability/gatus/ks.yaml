@@ -1,10 +1,10 @@
 ---
-# yaml-language-server: $schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/kustomization-kustomize-v1.json
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app authentik
-  namespace: &namespace authentik
+  name: &app gatus
+  namespace: &namespace observability
 spec:
   commonMetadata:
     labels:
@@ -13,7 +13,11 @@ spec:
     - name: rook-ceph-cluster
       namespace: rook-ceph
   interval: 1h
-  path: ./kubernetes/apps/authentik/app
+  path: ./kubernetes/apps/observability/gatus/app
+  postBuild:
+    substitute:
+      APP: *app
+      GATUS_SUBDOMAIN: status
   prune: true
   retryInterval: 2m
   sourceRef:
