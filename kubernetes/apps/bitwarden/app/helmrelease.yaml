@@ -41,7 +41,9 @@ spec:
           tag: v0.14.1
         # The pod resource requirements.  You can adjust these up and down for your environment
         resources:
-          limits: {}
+          limits:
+            cpu: null
+            memory: 128Mi
           requests:
             cpu: 5m
             memory: 64Mi
