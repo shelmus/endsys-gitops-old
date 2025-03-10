@@ -36,6 +36,25 @@ spec:
     toolbox:
       enabled: true
     cephClusterSpec:
+      resources:
+        mgr:
+          limits:
+            memory: "1Gi"
+          requests:
+            cpu: "500m"
+            memory: "512Mi"
+        mon:
+          limits:
+            memory: "2Gi"
+          requests:
+            cpu: "500m"
+            memory: "1Gi"
+        osd:
+          limits:
+            memory: "4Gi"
+          requests:
+            cpu: "500m"
+            memory: "4Gi"
       crashCollector:
         disable: true
       csi:
