@@ -39,18 +39,21 @@ spec:
       resources:
         mgr:
           limits:
+            cpu: null
             memory: "1Gi"
           requests:
             cpu: "500m"
             memory: "512Mi"
         mon:
           limits:
+            cpu: null
             memory: "2Gi"
           requests:
             cpu: "500m"
             memory: "1Gi"
         osd:
           limits:
+            cpu: null
             memory: "4Gi"
           requests:
             cpu: "500m"
