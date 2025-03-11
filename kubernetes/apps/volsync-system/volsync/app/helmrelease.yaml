@@ -33,7 +33,7 @@ spec:
       runAsGroup: 1000
     resources:
       limits:
-        cpu: {}
+        cpu: null
         memory: 1Gi
       requests:
         cpu: 100m
