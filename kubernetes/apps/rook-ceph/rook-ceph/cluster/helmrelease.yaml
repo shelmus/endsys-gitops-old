@@ -85,7 +85,7 @@ spec:
       storage:
         useAllNodes: true
         useAllDevices: false
-        devicePathFilter: /dev/nvme0n1
+        devicePathFilter: /dev/sdb
         config:
           osdsPerDevice: "1"
     cephBlockPools:
