@@ -26,7 +26,7 @@ spec:
     controller:
       service:
         annotations:
-          lbipam.cilium.io/ips: "10.0.0.54"
+          lbipam.cilium.io/ips: "10.0.0.44"
         externalTrafficPolicy: Cluster
       ingressClassResource:
         name: internal
@@ -72,7 +72,7 @@ spec:
             any: true
       extraArgs:
         default-ssl-certificate: |-
-          cert-manager/${SECRET_DOMAIN/./-}-production-tls
+          cert-manager/${SECRET_DOMAIN/./-}-staging-tls
       resources:
         requests:
           cpu: 100m

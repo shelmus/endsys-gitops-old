@@ -6,7 +6,7 @@ talosVersion: v1.9.4
 kubernetesVersion: v1.32.2
 
 clusterName: kubernetes
-endpoint: https://10.0.0.50:6443
+endpoint: https://10.0.0.40:6443
 
 clusterPodNets:
   - "10.42.0.0/16"
@@ -15,7 +15,7 @@ clusterSvcNets:
 
 additionalApiServerCertSans: &sans
   - "127.0.0.1"
-  - "10.0.0.50"
+  - "10.0.0.40"
 additionalMachineCertSans: *sans
 
 # Disable built-in CNI to use Cilium
@@ -24,7 +24,7 @@ cniConfig:
 
 nodes:
   - hostname: "kube1"
-    ipAddress: "10.0.0.51"
+    ipAddress: "10.0.0.41"
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
@@ -35,15 +35,15 @@ nodes:
           hardwareAddr: "bc:24:11:be:fd:1a"
         dhcp: false
         addresses:
-          - "10.0.0.51/23"
+          - "10.0.0.41/23"
         routes:
           - network: "0.0.0.0/0"
             gateway: "10.0.0.1"
         mtu: 1500
         vip:
-          ip: "10.0.0.50"
+          ip: "10.0.0.40"
   - hostname: "kube2"
-    ipAddress: "10.0.0.52"
+    ipAddress: "10.0.0.42"
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
@@ -54,15 +54,15 @@ nodes:
           hardwareAddr: "bc:24:11:87:ee:a7"
         dhcp: false
         addresses:
-          - "10.0.0.52/23"
+          - "10.0.0.42/23"
         routes:
           - network: "0.0.0.0/0"
             gateway: "10.0.0.1"
         mtu: 1500
         vip:
-          ip: "10.0.0.50"
+          ip: "10.0.0.40"
   - hostname: "kube3"
-    ipAddress: "10.0.0.53"
+    ipAddress: "10.0.0.43"
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
@@ -73,13 +73,13 @@ nodes:
           hardwareAddr: "bc:24:11:35:4f:05"
         dhcp: false
         addresses:
-          - "10.0.0.53/23"
+          - "10.0.0.43/23"
         routes:
           - network: "0.0.0.0/0"
             gateway: "10.0.0.1"
         mtu: 1500
         vip:
-          ip: "10.0.0.50"
+          ip: "10.0.0.40"
 
 # Global patches
 patches:
