@@ -34,7 +34,7 @@ spec:
         controller: wordpress
         ports:
           http:
-            port: *port
+            port: 80
     mariadb:
       enabled: true
       primary:
