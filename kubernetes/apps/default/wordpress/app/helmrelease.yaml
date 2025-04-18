@@ -39,9 +39,10 @@ spec:
           size: 10G
     ingress:
       enabled: true
-      className: external
+      ingressClassName: external
       annotations:
         external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
+      hostname: jessica.endsys.cloud
       hosts:
         - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
           paths:
