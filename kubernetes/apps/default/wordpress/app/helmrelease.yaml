@@ -11,7 +11,7 @@ spec:
       chart: wordpress
       sourceRef:
         kind: HelmRepository
-        name: wordpress
+        name: bitnami/wordpress
         namespace: flux-system
   install:
     remediation:
