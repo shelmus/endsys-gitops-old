@@ -8,10 +8,10 @@ spec:
   interval: 1h
   chart:
     spec:
-      chart: bitnami/wordpress
+      chart: wordpress
       sourceRef:
         kind: HelmRepository
-        name: bitnami
+        name: wordpress
         namespace: flux-system
   install:
     remediation:
