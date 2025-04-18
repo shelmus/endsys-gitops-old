@@ -24,6 +24,22 @@ spec:
     - name: cloudflared
       namespace: network
   values:
+    wordpressBlogName: Jessica
+    wordpressPassword: testing123
+    wordpressUsername: sean
+    persistance:
+      size: 10G
+    service:
+      app:
+        controller: wordpress
+        ports:
+          http:
+            port: *port
+    mariadb:
+      enabled: true
+      primary:
+        persistence:
+          size: 10G
     ingress:
       app:
         className: external
