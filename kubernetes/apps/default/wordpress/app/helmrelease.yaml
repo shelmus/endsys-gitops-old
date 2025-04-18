@@ -8,7 +8,7 @@ spec:
   interval: 1h
   chart:
     spec:
-      chart: wordpress
+      chart: bitnami/wordpress
       sourceRef:
         kind: HelmRepository
         name: bitnami
