@@ -6,13 +6,10 @@ metadata:
   name: wordpress
 spec:
   interval: 1h
-  chart:
-    spec:
-      chart: wordpress
-      sourceRef:
-        kind: HelmRepository
-        name: wordpress
-        namespace: flux-system
+  chartRef:
+    kind: OCIRepository
+    name: bitnami-wordpress
+    namespace: flux-system
   install:
     remediation:
       retries: 3
