@@ -38,6 +38,7 @@ spec:
         persistence:
           size: 10G
     ingress:
+      enabled: true
       app:
         className: external
         annotations:
