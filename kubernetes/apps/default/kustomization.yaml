@@ -7,4 +7,4 @@ components:
   - ../../components/common
 resources:
   - ./echo-server/ks.yaml
-  - ./wordpress/ks.yaml
+  # - ./wordpress/ks.yaml
