@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: panel-cm
 data:
-  SCRIPT_FILENAME: "/var/www/html/index.php"
+  SCRIPT_FILENAME: "/var/www/pelican/public/index.php"
