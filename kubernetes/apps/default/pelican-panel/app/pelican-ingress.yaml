@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: panel-ingress
+spec:
+  ingressClassName: internal
+  rules:
+    - host: pelican.endsys.cloud
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: pelican-panel
+                port:
+                  number: 443

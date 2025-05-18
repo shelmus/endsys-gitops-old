@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pelican-panel
+  labels:
+    app: pelican-panel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pelican-panel
+  template:
+    metadata:
+      labels:
+        app: pelican-panel
+    spec:
+      containers:
+        - name: pelican-panel
+          image: ghcr.io/pelican-dev/panel:latest
+          ports:
+            - containerPort: 80
+            - containerPort: 443
+          volumeMounts:
+            - name: pelican-data
+              mountPath: /pelican-data
+            - name: pelican-logs
+              mountPath: /var/www/html/storage/logs
+          env:
+            - name: XDG_DATA_HOME
+              value: /pelican-data
+            - name: APP_URL
+              value: https://pelican.endsys.cloud
+            - name: ADMIN_EMAIL
+              value: sean@endsys.cloud
+      volumes:
+        - name: pelican-data
+          persistentVolumeClaim:
+            claimName: pelican-data
+        - name: pelican-logs
+          persistentVolumeClaim:
+            claimName: pelican-logs
