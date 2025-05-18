@@ -14,6 +14,9 @@ spec:
       labels:
         app: pelican-panel
     spec:
+      securityContext:
+        runAsUser: 82
+        fsGroup: 82
       containers:
         - name: pelican-panel
           image: ghcr.io/pelican-dev/panel:latest
