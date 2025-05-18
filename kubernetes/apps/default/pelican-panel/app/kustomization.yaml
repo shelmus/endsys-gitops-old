@@ -5,6 +5,7 @@ kind: Kustomization
 namespace: default
 configMapGenerator:
   - name: caddy-config
+    behavior: replace
     files:
       - Caddyfile
 generatorOptions:
