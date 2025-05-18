@@ -2,6 +2,10 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: panel-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "FCGI"
+    nginx.ingress.kubernetes.io/fastcgi-index: "index.php"
+    nginx.ingress.kubernetes.io/fastcgi-params-configmap: "panel-cm"
 spec:
   ingressClassName: internal
   rules:
@@ -14,4 +18,4 @@ spec:
               service:
                 name: pelican-panel
                 port:
-                  number: 80
+                  name: fastcgi
