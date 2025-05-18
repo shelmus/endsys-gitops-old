@@ -3,10 +3,6 @@ kind: Ingress
 metadata:
   name: panel-ingress
   annotations:
-    nginx.ingress.kubernetes.io/backend-protocol: "FCGI"
-    nginx.ingress.kubernetes.io/fastcgi-index: "index.php"
-    nginx.ingress.kubernetes.io/fastcgi-params-configmap: "panel-cm"
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
     nginx.ingress.kubernetes.io/proxy-buffering: "off"
     nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
 spec:
@@ -21,4 +17,4 @@ spec:
               service:
                 name: pelican-panel
                 port:
-                  name: fastcgi
+                  number: 80

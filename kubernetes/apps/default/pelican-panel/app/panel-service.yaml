@@ -6,6 +6,6 @@ spec:
   selector:
     app: pelican-panel
   ports:
-    - name: fastcgi
-      port: 9000
-      targetPort: 9000
+    - protocol: TCP
+      port: 80
+      targetPort: 80
