@@ -25,7 +25,6 @@ spec:
             - containerPort: 80
               name: fastcgi
             - containerPort: 443
-              name: fastcgi
           volumeMounts:
             - name: pelican-data
               mountPath: /pelican-data
