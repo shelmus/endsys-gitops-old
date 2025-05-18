@@ -22,7 +22,6 @@ spec:
         - name: pelican-panel
           image: ghcr.io/pelican-dev/panel:latest
           ports:
-            - containerPort: 80
             - containerPort: 9000
               name: fastcgi
           volumeMounts:
