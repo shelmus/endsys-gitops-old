@@ -28,11 +28,14 @@ spec:
               mountPath: /pelican-data
             - name: pelican-logs
               mountPath: /var/www/html/storage/logs
+            - name: caddy-config
+              mountPath: /etc/caddy/Caddyfile
+              subPath: Caddyfile
           env:
             - name: XDG_DATA_HOME
               value: /pelican-data
             - name: APP_URL
-              value: http://pelican.endsys.cloud
+              value: https://pelican.endsys.cloud
             - name: ADMIN_EMAIL
               value: sean@endsys.cloud
             # - name: SKIP_CADDY
@@ -44,3 +47,6 @@ spec:
         - name: pelican-logs
           persistentVolumeClaim:
             claimName: pelican-logs
+        - name: caddy-config
+          configMap:
+            name: caddy-config

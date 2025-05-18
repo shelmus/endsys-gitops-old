@@ -1,0 +1,17 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: default
+configMapGenerator:
+  - name: caddy-config
+    files:
+      - Caddyfile
+generatorOptions:
+  disableNameSuffixHash: true
+resources:
+  - ./panel-deployment.yaml
+  - ./panel-pvc.yaml
+  - ./panel-service.yaml
+  - ./pelican-ingress.yaml
+  - ./configmap.yaml
