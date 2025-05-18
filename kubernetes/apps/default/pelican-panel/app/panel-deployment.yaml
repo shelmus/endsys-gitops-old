@@ -35,8 +35,8 @@ spec:
               value: http://pelican.endsys.cloud
             - name: ADMIN_EMAIL
               value: sean@endsys.cloud
-            - name: SKIP_CADDY
-              value: "true"
+            # - name: SKIP_CADDY
+            #   value: "true"
       volumes:
         - name: pelican-data
           persistentVolumeClaim:
