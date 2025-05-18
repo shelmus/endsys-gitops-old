@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: pelican-panel
 spec:
-  type: LoadBalancer
   selector:
     app: pelican-panel
   ports:
