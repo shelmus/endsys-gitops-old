@@ -23,6 +23,7 @@ spec:
           image: ghcr.io/pelican-dev/panel:latest
           ports:
             - containerPort: 80
+            - containerPort: 9000
               name: fastcgi
           volumeMounts:
             - name: pelican-data
@@ -36,6 +37,8 @@ spec:
               value: http://pelican.endsys.cloud
             - name: ADMIN_EMAIL
               value: sean@endsys.cloud
+            - name: SKIP_CADDY
+              value: "true"
       volumes:
         - name: pelican-data
           persistentVolumeClaim:
