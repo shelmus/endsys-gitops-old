@@ -33,7 +33,7 @@ spec:
             - name: XDG_DATA_HOME
               value: /pelican-data
             - name: APP_URL
-              value: https://pelican.endsys.cloud
+              value: http://pelican.endsys.cloud
             - name: ADMIN_EMAIL
               value: sean@endsys.cloud
       volumes:
