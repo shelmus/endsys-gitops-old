@@ -16,6 +16,7 @@ spec:
     spec:
       securityContext:
         runAsUser: 82
+        runAsGroup: 82
         fsGroup: 82
       containers:
         - name: pelican-panel
