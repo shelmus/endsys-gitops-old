@@ -19,6 +19,9 @@ metadata:
         proxy_cache_bypass $http_upgrade;
       }
     nginx.org/websocket-services: "pelican-panel"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/secure-backends: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
   ingressClassName: internal
   rules:
