@@ -1,0 +1,21 @@
+---
+persistance:
+  size: 50G
+mariadb:
+  enabled: true
+  primary:
+    persistence:
+      size: 10G
+ingress:
+  enabled: true
+  ingressClassName: external
+  annotations:
+    external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
+  hostname: wiki.endsys.cloud
+  hosts:
+    - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
+      paths:
+        - path: /
+          service:
+            identifier: app
+            port: http
