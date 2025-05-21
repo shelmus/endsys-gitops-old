@@ -5,3 +5,4 @@ kind: Kustomization
 resources:
   - ./wordpress.yaml
   - ./mediawiki.yaml
+  - ./app-template.yaml
