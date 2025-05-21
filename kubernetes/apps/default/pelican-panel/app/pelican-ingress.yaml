@@ -18,6 +18,7 @@ metadata:
         proxy_set_header Connection "upgrade";
         proxy_cache_bypass $http_upgrade;
       }
+    nginx.org/websocket-services: "pelican-panel"
 spec:
   ingressClassName: internal
   rules:
