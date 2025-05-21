@@ -1,4 +1,6 @@
 ---
+mediawikiSecret: "mediawiki-password"
+mediawikiName: Endor Wiki
 persistance:
   size: 50G
 mariadb:
