@@ -22,4 +22,4 @@ spec:
       namespace: network
   valuesFrom:
     - kind: ConfigMap
-      name: cert-manager-values
+      name: mediawiki-values
