@@ -9,9 +9,9 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  dependsOn:
-    - name: sm-operator
-      namespace: bitwarden
+  # dependsOn:
+  #   - name: sm-operator
+  #     namespace: bitwarden
   healthChecks:
     - apiVersion: helm.toolkit.fluxcd.io/v2
       kind: HelmRelease
