@@ -25,59 +25,62 @@ cniConfig:
 nodes:
   - hostname: "kube1"
     ipAddress: "10.0.0.41"
-    installDisk: "/dev/sda"
+    installDiskSelector:
+      serial: "naa.500253885012c985"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/9e729bc8df8e9c83d6c830ea8cb523c638b277334528fad4e9fce28190df0d2e
+    talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
-          hardwareAddr: "bc:24:11:6a:ab:87"
+          hardwareAddr: "90:e2:ba:1d:23:f0"
         dhcp: false
         addresses:
           - "10.0.0.41/23"
         routes:
           - network: "0.0.0.0/0"
             gateway: "10.0.0.1"
-        mtu: 1500
+        mtu: 9000
         vip:
           ip: "10.0.0.40"
   - hostname: "kube2"
     ipAddress: "10.0.0.42"
-    installDisk: "/dev/sda"
+    installDiskSelector:
+      serial: "naa.500253885012cc07"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/9e729bc8df8e9c83d6c830ea8cb523c638b277334528fad4e9fce28190df0d2e
+    talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
-          hardwareAddr: "bc:24:11:0c:e7:50"
+          hardwareAddr: "a0:36:9f:a4:06:d8"
         dhcp: false
         addresses:
           - "10.0.0.42/23"
         routes:
           - network: "0.0.0.0/0"
             gateway: "10.0.0.1"
-        mtu: 1500
+        mtu: 9000
         vip:
           ip: "10.0.0.40"
   - hostname: "kube3"
     ipAddress: "10.0.0.43"
-    installDisk: "/dev/sda"
+    installDiskSelector:
+      serial: "naa.50025385002046dc"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/9e729bc8df8e9c83d6c830ea8cb523c638b277334528fad4e9fce28190df0d2e
+    talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
-          hardwareAddr: "bc:24:11:87:1f:ef"
+          hardwareAddr: "a0:36:9f:6e:bc:14"
         dhcp: false
         addresses:
           - "10.0.0.43/23"
         routes:
           - network: "0.0.0.0/0"
             gateway: "10.0.0.1"
-        mtu: 1500
+        mtu: 9000
         vip:
           ip: "10.0.0.40"
 
