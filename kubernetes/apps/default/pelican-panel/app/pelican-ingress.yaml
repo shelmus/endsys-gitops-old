@@ -23,7 +23,7 @@ metadata:
     nginx.ingress.kubernetes.io/secure-backends: "true"
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
-  ingressClassName: internal
+  ingressClassName: external
   rules:
     - host: pelican.endsys.cloud
       http:
