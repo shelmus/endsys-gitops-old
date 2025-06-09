@@ -8,4 +8,4 @@ spec:
   interval: 5m0s
   url: oci://registry-1.docker.io/bitnamicharts/mediawiki
   ref:
-    tag: 20.0.5
+    tag: 21.0.4
