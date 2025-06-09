@@ -1,9 +1,9 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/budimanjojo/talhelper/master/pkg/config/schemas/talconfig.json
 ---
 # renovate: datasource=docker depName=ghcr.io/siderolabs/installer
-talosVersion: v1.9.4
+talosVersion: v1.10.3
 # renovate: datasource=docker depName=ghcr.io/siderolabs/kubelet
-kubernetesVersion: v1.32.2
+kubernetesVersion: v1.33.0
 
 clusterName: kubernetes
 endpoint: https://10.0.0.40:6443
@@ -26,7 +26,7 @@ nodes:
   - hostname: "kube1"
     ipAddress: "10.0.0.41"
     installDiskSelector:
-      serial: "naa.500253885012c985"
+      wwid: "naa.500253885012c985"
     machineSpec:
       secureboot: false
     talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
@@ -46,7 +46,7 @@ nodes:
   - hostname: "kube2"
     ipAddress: "10.0.0.42"
     installDiskSelector:
-      serial: "naa.500253885012cc07"
+      wwid: "naa.500253885012cc07"
     machineSpec:
       secureboot: false
     talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
@@ -66,7 +66,7 @@ nodes:
   - hostname: "kube3"
     ipAddress: "10.0.0.43"
     installDiskSelector:
-      serial: "naa.50025385002046dc"
+      wwid: "naa.50025385002046dc"
     machineSpec:
       secureboot: false
     talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
