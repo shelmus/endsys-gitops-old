@@ -23,6 +23,7 @@ spec:
       strategy: rollback
       retries: 3
   values:
+    provisioner: nfs.csi.k8s.io
     controller:
       replicas: 1
     storageClass:
