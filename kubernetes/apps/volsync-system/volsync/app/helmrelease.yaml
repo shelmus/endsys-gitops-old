@@ -23,7 +23,6 @@ spec:
       strategy: rollback
       retries: 3
   values:
-    installCRDs: true
     manageCRDs: true
     replicaCount: 2
     metrics:
