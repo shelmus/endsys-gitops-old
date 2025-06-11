@@ -32,7 +32,7 @@ spec:
         server: 10.0.0.5
         share: /mnt/data0/kubernetes/
       mountOptions:
-        - nfsvers=4
+        - nfsvers=4.1
         - hard
         - noatime
       reclaimPolicy: Retain
