@@ -5,7 +5,7 @@ kind: Kustomization
 resources:
   - ./helmrelease.yaml
   - ./nfs-pvc.yaml
-  - ./resic-repo.yaml
+  - ./restic-repo.yaml
   - ./replicate-pelican.yaml
   - ./secret.sops.yaml
   # - ./replication-destination.yaml
