@@ -1,0 +1,19 @@
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: app-restore
+  namespace: apps
+spec:
+  trigger:
+    manual: restore-001
+  restic:
+    repository: nfs-restic-repo
+    copyMethod: Snapshot
+    destinationPVC: my-app-restored-pvc
+    storageClassName: rook-ceph-block
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 10Gi

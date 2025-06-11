@@ -1,0 +1,14 @@
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationSource
+metadata:
+  name: app-backup
+  namespace: apps
+spec:
+  sourcePVC: my-app-pvc
+  trigger:
+    schedule: "0 */6 * * *"
+  restic:
+    repository: nfs-restic-repo
+    copyMethod: Snapshot
+    pruneIntervalDays: 7

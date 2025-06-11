@@ -27,14 +27,13 @@ spec:
       replicas: 1
     storageClass:
       create: true
-      name: nfs-slow
+      name: nfs-csi
       parameters:
-        server: vault.lab.endsys.cloud
+        server: 10.0.0.5
         share: /mnt/data0/kubernetes/
       mountOptions:
-        - nfsvers=4.2
-        - nconnect=16
+        - nfsvers=4
         - hard
         - noatime
-      reclaimPolicy: Delete
+      reclaimPolicy: Retain
       volumeBindingMode: Immediate
