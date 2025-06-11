@@ -9,5 +9,6 @@ resources:
   - ./echo-server/ks.yaml
   - ./pelican-panel/ks.yaml
   - ./volsync-backups/ks.yaml
+  - ./authentik/ks.yaml
   # - ./mediawiki/ks.yaml
   # - ./wordpress/ks.yaml
