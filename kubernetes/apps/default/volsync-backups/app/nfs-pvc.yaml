@@ -3,11 +3,11 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: volsync-nfs-backup
-  namespace: volsync-system
+  namespace: default
 spec:
   accessModes:
     - ReadWriteMany
   storageClassName: nfs-csi
   resources:
     requests:
-      storage: 100Gi
+      storage: 1000Gi
