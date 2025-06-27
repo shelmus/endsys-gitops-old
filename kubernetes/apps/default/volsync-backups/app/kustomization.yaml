@@ -6,3 +6,5 @@ resources:
   - ./nfs-pvc.yaml
   - ./replicate-pelican.yaml
   - ./secret.sops.yaml
+# RESTORE A BACKUP UNCOMMENT
+  - ./restore-pelican.yaml

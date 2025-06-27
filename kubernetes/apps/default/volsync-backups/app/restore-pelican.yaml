@@ -2,37 +2,37 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: app-restore
-  namespace: apps
+  name: pelican-data-restore
+  namespace: default
 spec:
   trigger:
     manual: restore-001
   restic:
-    repository: nfs-restic-repo
+    repository: pelican-data-restic-secret
     copyMethod: Snapshot
-    destinationPVC: my-app-restored-pvc
+    destinationPVC: pelican-data-restored-pvc
     storageClassName: rook-ceph-block
     accessModes:
       - ReadWriteOnce
     resources:
       requests:
-        storage: 10Gi
+        storage: 100Gi
 ---
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: app-restore
-  namespace: apps
+  name: pelican-logs-restore
+  namespace: default
 spec:
   trigger:
     manual: restore-001
   restic:
-    repository: nfs-restic-repo
+    repository: pelican-logs-restic-secret
     copyMethod: Snapshot
-    destinationPVC: my-app-restored-pvc
+    destinationPVC: pelican-logs-restored-pvc
     storageClassName: rook-ceph-block
     accessModes:
       - ReadWriteOnce
     resources:
       requests:
-        storage: 10Gi
+        storage: 100Gi
