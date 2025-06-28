@@ -12,11 +12,8 @@ spec:
     copyMethod: Snapshot
     destinationPVC: pelican-data-restored-pvc
     storageClassName: rook-ceph-block
-    accessModes:
-      - ReadWriteOnce
-    resources:
-      requests:
-        storage: 100Gi
+    accessModes: ["ReadWriteOnce"]
+    capacity: 100Gi
 ---
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
@@ -31,8 +28,5 @@ spec:
     copyMethod: Snapshot
     destinationPVC: pelican-logs-restored-pvc
     storageClassName: rook-ceph-block
-    accessModes:
-      - ReadWriteOnce
-    resources:
-      requests:
-        storage: 100Gi
+    accessModes: ["ReadWriteOnce"]
+    capacity: 100Gi
