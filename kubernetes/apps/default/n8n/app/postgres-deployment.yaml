@@ -61,7 +61,7 @@ spec:
             - name: POSTGRES_NON_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: n8-postgres-secret
+                  name: n8n-postgres-secret
                   key: POSTGRES_NON_ROOT_PASSWORD
             - name:   POSTGRES_HOST
               value: n8n-postgres-service
