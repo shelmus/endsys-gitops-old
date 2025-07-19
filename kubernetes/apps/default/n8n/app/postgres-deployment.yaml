@@ -63,7 +63,7 @@ spec:
                 secretKeyRef:
                   name: n8n-postgres-secret
                   key: POSTGRES_NON_ROOT_PASSWORD
-            - name:   POSTGRES_HOST
+            - name: POSTGRES_HOST
               value: n8n-postgres-service
             - name: POSTGRES_PORT
               value: '5432'
