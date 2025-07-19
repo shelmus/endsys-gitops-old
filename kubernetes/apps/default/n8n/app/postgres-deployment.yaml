@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     service: postgres-n8n
-  name: postgres
+  name: n8n-postgres
   namespace: default
 spec:
   replicas: 1
@@ -33,7 +33,7 @@ spec:
           ports:
             - containerPort: 5432
           volumeMounts:
-            - name: postgresql-pv
+            - name: n8n-postgresql-pv
               mountPath: /var/lib/postgresql/data
             - name: init-data
               mountPath: /docker-entrypoint-initdb.d/init-n8n-user.sh
@@ -44,37 +44,37 @@ spec:
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  name: postgres-secret
+                  name: n8n-postgres-secret
                   key: POSTGRES_USER
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgres-secret
+                  name: n8n-postgres-secret
                   key: POSTGRES_PASSWORD
             - name: POSTGRES_DB
               value: n8n
             - name: POSTGRES_NON_ROOT_USER
               valueFrom:
                 secretKeyRef:
-                  name: postgres-secret
+                  name: n8n-postgres-secret
                   key: POSTGRES_NON_ROOT_USER
             - name: POSTGRES_NON_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgres-secret
+                  name: n8-postgres-secret
                   key: POSTGRES_NON_ROOT_PASSWORD
             - name:   POSTGRES_HOST
-              value: postgres-service
+              value: n8n-postgres-service
             - name: POSTGRES_PORT
               value: '5432'
       restartPolicy: Always
       volumes:
-        - name: postgresql-pv
+        - name: n8n-postgresql-pv
           persistentVolumeClaim:
             claimName: postgresql-pv
-        - name: postgres-secret
+        - name: n8n-postgres-secret
           secret:
-            secretName: postgres-secret
+            secretName: n8n-postgres-secret
         - name: init-data
           configMap:
             name: init-data
