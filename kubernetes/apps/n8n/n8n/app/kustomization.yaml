@@ -9,6 +9,6 @@ resources:
   - ./n8n-service.yaml
   - ./postgres-claim0-persistentvolumeclaim.yaml
   - ./postgres-configmap.yaml
-  - ./postgres-development.yaml
+  - ./postgres-deployment.yaml
   - ./postgres-service.yaml
   - ./secret.sops.yaml
