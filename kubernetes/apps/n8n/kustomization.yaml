@@ -6,4 +6,4 @@ namespace: n8n
 components:
   - ../../components/common
 resources:
-  - ./n8n/ks.yaml
+  # - ./n8n/ks.yaml
