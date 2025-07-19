@@ -18,7 +18,7 @@ spec:
       name: *app
       namespace: *namespace
   interval: 1h
-  path: ./kubernetes/apps/volsync-system/volsync/app
+  path: ./kubernetes/apps/n8n/n8n/app
   prune: true
   retryInterval: 2m
   sourceRef:
