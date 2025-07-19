@@ -3,8 +3,8 @@ kind: Deployment
 metadata:
   labels:
     service: postgres-n8n
-  name: n8n-postgres
-  namespace: default
+  name: postgres
+  namespace: n8n
 spec:
   replicas: 1
   selector:
@@ -33,7 +33,7 @@ spec:
           ports:
             - containerPort: 5432
           volumeMounts:
-            - name: n8n-postgresql-pv
+            - name: postgresql-pv
               mountPath: /var/lib/postgresql/data
             - name: init-data
               mountPath: /docker-entrypoint-initdb.d/init-n8n-user.sh
@@ -44,37 +44,37 @@ spec:
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  name: n8n-postgres-secret
+                  name: postgres-secret
                   key: POSTGRES_USER
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: n8n-postgres-secret
+                  name: postgres-secret
                   key: POSTGRES_PASSWORD
             - name: POSTGRES_DB
               value: n8n
             - name: POSTGRES_NON_ROOT_USER
               valueFrom:
                 secretKeyRef:
-                  name: n8n-postgres-secret
+                  name: postgres-secret
                   key: POSTGRES_NON_ROOT_USER
             - name: POSTGRES_NON_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: n8n-postgres-secret
+                  name: postgres-secret
                   key: POSTGRES_NON_ROOT_PASSWORD
-            - name: POSTGRES_HOST
-              value: n8n-postgres-service
+            - name:   POSTGRES_HOST
+              value: postgres-service
             - name: POSTGRES_PORT
               value: '5432'
       restartPolicy: Always
       volumes:
-        - name: n8n-postgresql-pv
+        - name: postgresql-pv
           persistentVolumeClaim:
-            claimName: n8n-postgresql-pv
-        - name: n8n-postgres-secret
+            claimName: postgresql-pv
+        - name: postgres-secret
           secret:
-            secretName: n8n-postgres-secret
+            secretName: postgres-secret
         - name: init-data
           configMap:
             name: init-data

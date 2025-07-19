@@ -2,13 +2,8 @@
 # yaml-language-server: $schema=https://json.schemastore.org/kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: default
+namespace: n8n
 components:
   - ../../components/common
 resources:
-  - ./echo-server/ks.yaml
-  - ./pelican-panel/ks.yaml
-  - ./volsync-backups/ks.yaml
-  - ./authentik/ks.yaml
-  # - ./mediawiki/ks.yaml
-  # - ./wordpress/ks.yaml
+  - ./n8n/ks.yaml

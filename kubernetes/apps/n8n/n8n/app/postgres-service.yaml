@@ -3,8 +3,8 @@ kind: Service
 metadata:
   labels:
     service: postgres-n8n
-  name: n8n-postgres-service
-  namespace: default
+  name: postgres-service
+  namespace: n8n
 spec:
   clusterIP: None
   ports:

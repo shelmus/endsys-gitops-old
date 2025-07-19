@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: init-data
-  namespace: default
+  namespace: n8n
 data:
   init-data.sh: |
     #!/bin/bash

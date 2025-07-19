@@ -34,7 +34,7 @@ spec:
             - name: DB_TYPE
               value: postgresdb
             - name: DB_POSTGRESDB_HOST
-              value: n8n-postgres-service.default.svc.cluster.local
+              value: postgres-service.n8n.svc.cluster.local
             - name: DB_POSTGRESDB_PORT
               value: "5432"
             - name: DB_POSTGRESDB_DATABASE
@@ -42,12 +42,12 @@ spec:
             - name: DB_POSTGRESDB_USER
               valueFrom:
                 secretKeyRef:
-                  name: n8n-postgres-secret
+                  name: postgres-secret
                   key: POSTGRES_NON_ROOT_USER
             - name: DB_POSTGRESDB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: n8n-postgres-secret
+                  name: postgres-secret
                   key: POSTGRES_NON_ROOT_PASSWORD
             - name: N8N_PROTOCOL
               value: http
@@ -75,4 +75,4 @@ spec:
             secretName: n8n-secret
         - name: postgres-secret
           secret:
-            secretName: n8n-postgres-secret
+            secretName: postgres-secret

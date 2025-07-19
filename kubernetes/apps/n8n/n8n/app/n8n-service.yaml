@@ -4,12 +4,12 @@ metadata:
   labels:
     service: n8n
   name: n8n
-  namespace: default
+  namespace: n8n
 spec:
+  type: LoadBalancer
   ports:
     - name: "5678"
-      #port: 5678
-      port: 80
+      port: 5678
       targetPort: 5678
       protocol: TCP
   selector:
