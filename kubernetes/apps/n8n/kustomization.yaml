@@ -5,5 +5,5 @@ kind: Kustomization
 namespace: n8n
 components:
   - ../../components/common
-resources:
+resources: []
   # - ./n8n/ks.yaml
