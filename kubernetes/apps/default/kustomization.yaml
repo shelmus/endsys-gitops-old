@@ -11,6 +11,6 @@ resources:
   - ./volsync-backups/ks.yaml
   - ./authentik/ks.yaml
   - ./openwebui/ks.yaml
-  - ./n8n/ks.yaml
+  # - ./n8n/ks.yaml
   # - ./mediawiki/ks.yaml
   # - ./wordpress/ks.yaml
