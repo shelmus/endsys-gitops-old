@@ -21,7 +21,7 @@ spec:
       namespace: network
   values:
     # The n8n related part of the config
-    config: # Dict with all n8n config options
+    #config: # Dict with all n8n config options
     #    database:
     #      type: postgresdb
     #      postgresdb:
@@ -30,7 +30,7 @@ spec:
     #
     # existingSecret and secret are exclusive, with existingSecret taking priority.
     # existingSecret: "" # Use an existing Kubernetes secret, e.g created by hand or Vault operator.
-    secret: # Dict with all n8n config options, unlike config the values here will end up in a secret.
+    #secret: # Dict with all n8n config options, unlike config the values here will end up in a secret.
     #    database:
     #      postgresdb:
     #        password: here_db_root_password
