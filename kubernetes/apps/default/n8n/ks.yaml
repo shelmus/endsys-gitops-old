@@ -6,9 +6,9 @@ metadata:
   name: &app n8n
   namespace: &namespace default
 spec:
-  dependsOn:
-    - name: n8n-postgres
-      namespace: default
+  # dependsOn:
+  #   - name: n8n-postgres
+  #     namespace: default
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
