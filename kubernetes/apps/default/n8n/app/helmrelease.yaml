@@ -122,7 +122,11 @@ spec:
       # kubernetes.io/tls-acme: "true"
       hosts:
         - host: n8n.endsys.cloud
-          paths: []
+          paths:
+            - path: /
+              service:
+                identifier: app
+                port: http
       # tls: [ ]
       # #  - secretName: chart-example-tls
       # #    hosts:
