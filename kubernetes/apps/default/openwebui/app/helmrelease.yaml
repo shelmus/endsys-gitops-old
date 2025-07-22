@@ -29,7 +29,7 @@ spec:
       enabled: true
       class: internal
       host: chatgpt.endsys.cloud
-    persistance:
+    persistence:
       enabled: true
       size: 10Gi
       storageClass: ceph-block
