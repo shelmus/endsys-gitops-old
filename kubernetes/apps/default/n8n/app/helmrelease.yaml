@@ -1,0 +1,172 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: n8n
+spec:
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: n8n-helm
+    namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  dependsOn:
+    - name: cloudflared
+      namespace: network
+  values:
+    # The n8n related part of the config
+    config: # Dict with all n8n config options
+    #    database:
+    #      type: postgresdb
+    #      postgresdb:
+    #        database: n8n
+    #        host: localhost
+    #
+    # existingSecret and secret are exclusive, with existingSecret taking priority.
+    # existingSecret: "" # Use an existing Kubernetes secret, e.g created by hand or Vault operator.
+    secret: # Dict with all n8n config options, unlike config the values here will end up in a secret.
+    #    database:
+    #      postgresdb:
+    #        password: here_db_root_password
+
+    ##
+    ##
+    ## Common Kubernetes Config Settings
+    persistence:
+      ## If true, use a Persistent Volume Claim, If false, use emptyDir
+      ##
+      enabled: true
+      type: emptyDir # what type volume, possible options are [existing, emptyDir, dynamic] dynamic for Dynamic Volume Provisioning, existing for using an existing Claim
+      ## Persistent Volume Storage Class
+      ## If defined, storageClassName: <storageClass>
+      ## If set to "-", storageClassName: "", which disables dynamic provisioning
+      ## If undefined (the default) or set to null, no storageClassName spec is
+      ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+      ##   GKE, AWS & OpenStack)
+      ##
+      storageClass: ceph-block
+      ## PVC annotations
+      #
+      # If you need this annotation include it under values.yml file and pvc.yml template will add it.
+      # This is not maintained at Helm v3 anymore.
+      # https://github.com/8gears/n8n-helm-chart/issues/8
+      #
+      # annotations:
+      #   helm.sh/resource-policy: keep
+      ## Persistent Volume Access Mode
+      ##
+      accessModes:
+        - ReadWriteOnce
+      ## Persistent Volume size
+      ##
+      size: 20Gi
+      ## Use an existing PVC
+      ##
+      # existingClaim:
+
+    # Set additional environment variables on the Deployment
+    extraEnv: { }
+    # Set this if running behind a reverse proxy and the external port is different from the port n8n runs on
+    #   WEBHOOK_TUNNEL_URL: "https://n8n.myhost.com/
+
+    replicaCount: 1
+
+    image:
+      repository: n8nio/n8n
+      pullPolicy: IfNotPresent
+      # Overrides the image tag whose default is the chart appVersion.
+      tag: ""
+
+    imagePullSecrets: [ ]
+    nameOverride: ""
+    fullnameOverride: ""
+
+    serviceAccount:
+      # Specifies whether a service account should be created
+      create: true
+      # Annotations to add to the service account
+      annotations: { }
+      # The name of the service account to use.
+      # If not set and create is true, a name is generated using the fullname template
+      name: ""
+
+    podAnnotations: { }
+
+    podSecurityContext: { }
+    # fsGroup: 2000
+
+    securityContext: { }
+      # capabilities:
+      #   drop:
+    #   - ALL
+    # readOnlyRootFilesystem: true
+    # runAsNonRoot: true
+    # runAsUser: 1000
+
+    service:
+      type: ClusterIP
+      port: 80
+      annotations: { }
+
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: internal
+      # kubernetes.io/tls-acme: "true"
+      hosts:
+        - host: n8n.endsys.cloud
+          paths: /
+      # tls: [ ]
+      # #  - secretName: chart-example-tls
+      # #    hosts:
+      # #      - chart-example.local
+
+    resources: { }
+      # We usually recommend not to specify default resources and to leave this as a conscious
+      # choice for the user. This also increases chances charts run on environments with little
+      # resources, such as Minikube. If you do want to specify resources, uncomment the following
+      # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+      # limits:
+      #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+    #   cpu: 100m
+    #   memory: 128Mi
+
+    autoscaling:
+      enabled: false
+      minReplicas: 1
+      maxReplicas: 100
+      targetCPUUtilizationPercentage: 80
+      # targetMemoryUtilizationPercentage: 80
+
+    nodeSelector: { }
+
+    tolerations: [ ]
+
+    affinity: { }
+
+    scaling:
+      enabled: false
+
+      worker:
+        count: 2
+        concurrency: 2
+
+      webhook:
+        enabled: false
+        count: 1
+
+      redis:
+        host:
+        password:
+
+    redis:
+      enabled: false
+      # Other default redis values: https://github.com/bitnami/charts/blob/master/bitnami/redis/values.yaml
