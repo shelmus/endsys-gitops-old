@@ -8,7 +8,7 @@ spec:
   interval: 1h
   chart:
     spec:
-      chart: openwebui
+      chart: open-webui
       version: 6.27.0
       sourceRef:
         kind: HelmRepository
