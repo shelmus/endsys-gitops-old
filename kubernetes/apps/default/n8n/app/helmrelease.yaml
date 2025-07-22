@@ -117,17 +117,8 @@ spec:
     ingress:
       enabled: true
       className: internal
-      annotations: {}
-      # kubernetes.io/ingress.class: internal
-      # kubernetes.io/tls-acme: "true"
       hosts:
         - host: n8n.endsys.cloud
-          paths:
-            - path: /
-              pathType: Prefix
-              service:
-                identifier: app
-                port: http
       # tls: [ ]
       # #  - secretName: chart-example-tls
       # #    hosts:
