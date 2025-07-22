@@ -119,6 +119,8 @@ spec:
       className: internal
       hosts:
         - host: n8n.endsys.cloud
+          paths:
+            - /
       # tls: [ ]
       # #  - secretName: chart-example-tls
       # #    hosts:
