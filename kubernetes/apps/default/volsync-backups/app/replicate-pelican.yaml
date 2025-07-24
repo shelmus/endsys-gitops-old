@@ -6,15 +6,16 @@ metadata:
   namespace: default
 spec:
   sourcePVC: pelican-data
-  trigger:
-    schedule: "0 * * * *"
-  restic:
-    repository: pelican-data-restic-secret
-    copyMethod: Snapshot
-    storageClassName: nfs-csi
-    accessModes: ["ReadWriteMany"]
-    capacity: 100Gi
-    pruneIntervalDays: 7
+  transport: rsync
+  schedule:
+    - daily
+  # restic:
+  #   repository: pelican-data-restic-secret
+  #   copyMethod: Snapshot
+  #   storageClassName: nfs-csi
+  #   accessModes: ["ReadWriteMany"]
+  #   capacity: 100Gi
+  #   pruneIntervalDays: 7
 ---
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
@@ -23,12 +24,13 @@ metadata:
   namespace: default
 spec:
   sourcePVC: pelican-logs
-  trigger:
-    schedule: "5 * * * *"
-  restic:
-    repository: pelican-logs-restic-secret
-    copyMethod: Snapshot
-    storageClassName: nfs-csi
-    accessModes: ["ReadWriteMany"]
-    capacity: 100Gi
-    pruneIntervalDays: 7
+  transport: rsync
+  schedule:
+    - daily
+  # restic:
+  #   repository: pelican-logs-restic-secret
+  #   copyMethod: Snapshot
+  #   storageClassName: nfs-csi
+  #   accessModes: ["ReadWriteMany"]
+  #   capacity: 100Gi
+  #   pruneIntervalDays: 7
