@@ -6,16 +6,16 @@ metadata:
   namespace: default
 spec:
   sourcePVC: pelican-data
-  transport: rsync
   schedule:
     - daily
-  # restic:
-  #   repository: pelican-data-restic-secret
-  #   copyMethod: Snapshot
-  #   storageClassName: nfs-csi
-  #   accessModes: ["ReadWriteMany"]
-  #   capacity: 100Gi
-  #   pruneIntervalDays: 7
+  restic:
+    repository: pelican-data-restic-secret
+    copyMethod: Snapshot
+    storageClassName: nfs-csi
+    accessModes: ["ReadWriteMany"]
+    capacity: 100Gi
+    pruneIntervalDays: 7
+  volumeSnapshotClassName: csi-ceph-blockpool
 ---
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
@@ -24,13 +24,32 @@ metadata:
   namespace: default
 spec:
   sourcePVC: pelican-logs
-  transport: rsync
   schedule:
     - daily
-  # restic:
-  #   repository: pelican-logs-restic-secret
-  #   copyMethod: Snapshot
-  #   storageClassName: nfs-csi
-  #   accessModes: ["ReadWriteMany"]
-  #   capacity: 100Gi
-  #   pruneIntervalDays: 7
+  restic:
+    repository: pelican-logs-restic-secret
+    copyMethod: Snapshot
+    storageClassName: nfs-csi
+    accessModes: ["ReadWriteMany"]
+    capacity: 100Gi
+    pruneIntervalDays: 7
+  volumeSnapshotClassName: csi-ceph-blockpool
+---
+piVersion: volsync.backube.com/v1alpha1
+kind: ResticRepository
+metadata:
+  name: nfs-restic-repo
+  namespace: default # The same namespace as your NFS PVC
+spec:
+  backend:
+    local:
+      volumeClaim: nfs-csi # The PVC pointing to your NFS share
+      path: /volsync-backups/pelican # A sub-path within the NFS share for this specific app
+  # Optional: Configure encryption (highly recommended)
+  restic:
+    encryption:
+      stdin: {} # Use stdin for a password via Secret
+    password:
+      secretRef:
+        name: restic-password-secret # Secret containing your restic password
+        key: password
