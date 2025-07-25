@@ -2,9 +2,9 @@
 # yaml-language-server: $schema=https://json.schemastore.org/kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-resources:
-  - ./nfs-pvc.yaml
-  - ./replicate-pelican.yaml
-  - ./secret.sops.yaml
-# RESTORE A BACKUP UNCOMMENT
-  - ./restore-pelican.yaml
+resources: []
+#   - ./nfs-pvc.yaml
+#   - ./replicate-pelican.yaml
+#   - ./secret.sops.yaml
+# # RESTORE A BACKUP UNCOMMENT
+#   - ./restore-pelican.yaml
