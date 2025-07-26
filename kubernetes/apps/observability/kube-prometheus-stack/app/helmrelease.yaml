@@ -24,6 +24,10 @@ spec:
     remediation:
       strategy: rollback
       retries: 3
+  valuesFrom:
+    - kind: Secret
+      name: grafana-login
+      valuesKey: values.yaml
   values:
     alertmanger:
       ingress:
