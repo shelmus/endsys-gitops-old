@@ -35,7 +35,7 @@ spec:
           - /
     grafana:
       enabled: true
-      defaultDashboardsTimezone: browser
+      defaultDashboardsTimezone: browsers
       ingress:
         enabled: true
         ingressClassName: internal
