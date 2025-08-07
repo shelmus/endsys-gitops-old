@@ -28,7 +28,7 @@ spec:
     ingress:
       enabled: true
       class: internal
-      host: chatgpt.endsys.cloud
+      host: chatai.endsys.cloud
     persistence:
       enabled: true
       size: 10Gi
