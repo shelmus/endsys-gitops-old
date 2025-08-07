@@ -44,4 +44,5 @@ spec:
     main:
       persistence:
         enabled: true
+        type: dynamic
         size: 5Gi
