@@ -3,14 +3,17 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app mediawiki
+  name: &app otterwiki
   namespace: &namespace default
 spec:
+  # dependsOn:
+  #   - name: n8n-postgres
+  #     namespace: default
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
   interval: 1h
-  path: ./kubernetes/apps/default/mediawiki/app
+  path: ./kubernetes/apps/default/otterwiki/app
   prune: true
   retryInterval: 2m
   sourceRef:

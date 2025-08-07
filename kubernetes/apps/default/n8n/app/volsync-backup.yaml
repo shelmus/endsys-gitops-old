@@ -2,32 +2,14 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: pelican-backup-data
+  name: n8n-backup
   namespace: default
 spec:
-  sourcePVC: open-webui
+  sourcePVC: n8n
   trigger:
     schedule: "0 * * * *"  # hourly backup
   restic:
-    repository: open-webui-restic-secret
-    copyMethod: Snapshot
-    retain:
-      hourly: 24
-      daily: 7
-      weekly: 4
-    pruneIntervalDays: 7
----
-apiVersion: volsync.backube/v1alpha1
-kind: ReplicationSource
-metadata:
-  name: pelican-backup-logs
-  namespace: default
-spec:
-  sourcePVC: open-webui-pipelines
-  trigger:
-    schedule: "0 * * * *"  # hourly backup
-  restic:
-    repository: openwebui-pipelines-restic-secret
+    repository: n8n-restic-secret
     copyMethod: Snapshot
     retain:
       hourly: 24
