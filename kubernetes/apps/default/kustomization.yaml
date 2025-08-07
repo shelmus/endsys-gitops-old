@@ -9,7 +9,7 @@ resources:
   - ./echo-server/ks.yaml
   - ./pelican-panel/ks.yaml
   - ./volsync-backups/ks.yaml
-  - ./authentik/ks.yaml
+  # - ./authentik/ks.yaml
   - ./openwebui/ks.yaml
   - ./n8n/ks.yaml
   - ./otterwiki/ks.yaml
