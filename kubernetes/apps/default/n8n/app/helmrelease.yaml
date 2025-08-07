@@ -71,102 +71,102 @@ spec:
         ##
         existingClaim: n8n-data
 
-    # Set additional environment variables on the Deployment
-    extraEnv: { }
-    # Set this if running behind a reverse proxy and the external port is different from the port n8n runs on
-    #   WEBHOOK_TUNNEL_URL: "https://n8n.myhost.com/
+      # Set additional environment variables on the Deployment
+      extraEnv: { }
+      # Set this if running behind a reverse proxy and the external port is different from the port n8n runs on
+      #   WEBHOOK_TUNNEL_URL: "https://n8n.myhost.com/
 
-    replicaCount: 1
+      replicaCount: 1
 
-    image:
-      repository: n8nio/n8n
-      pullPolicy: IfNotPresent
-      # Overrides the image tag whose default is the chart appVersion.
-      tag: "1.106.0"
+      image:
+        repository: n8nio/n8n
+        pullPolicy: IfNotPresent
+        # Overrides the image tag whose default is the chart appVersion.
+        tag: "1.106.0"
 
-    imagePullSecrets: [ ]
-    nameOverride: ""
-    fullnameOverride: ""
+      imagePullSecrets: [ ]
+      nameOverride: ""
+      fullnameOverride: ""
 
-    serviceAccount:
-      # Specifies whether a service account should be created
-      create: true
-      # Annotations to add to the service account
-      annotations: { }
-      # The name of the service account to use.
-      # If not set and create is true, a name is generated using the fullname template
-      name: ""
+      serviceAccount:
+        # Specifies whether a service account should be created
+        create: true
+        # Annotations to add to the service account
+        annotations: { }
+        # The name of the service account to use.
+        # If not set and create is true, a name is generated using the fullname template
+        name: ""
 
-    podAnnotations: { }
+      podAnnotations: { }
 
-    podSecurityContext: { }
-    # fsGroup: 2000
+      podSecurityContext: { }
+      # fsGroup: 2000
 
-    securityContext: { }
-      # capabilities:
-      #   drop:
-    #   - ALL
-    # readOnlyRootFilesystem: true
-    # runAsNonRoot: true
-    # runAsUser: 1000
+      securityContext: { }
+        # capabilities:
+        #   drop:
+      #   - ALL
+      # readOnlyRootFilesystem: true
+      # runAsNonRoot: true
+      # runAsUser: 1000
 
-    service:
-      type: ClusterIP
-      port: 80
-      annotations: { }
+      service:
+        type: ClusterIP
+        port: 80
+        annotations: { }
 
-    ingress:
-      enabled: true
-      className: internal
-      hosts:
-        - host: n8n.endsys.cloud
-          paths:
-            - /
-      # tls: [ ]
-      # #  - secretName: chart-example-tls
-      # #    hosts:
-      # #      - chart-example.local
+      ingress:
+        enabled: true
+        className: internal
+        hosts:
+          - host: n8n.endsys.cloud
+            paths:
+              - /
+        # tls: [ ]
+        # #  - secretName: chart-example-tls
+        # #    hosts:
+        # #      - chart-example.local
 
-    resources: { }
-      # We usually recommend not to specify default resources and to leave this as a conscious
-      # choice for the user. This also increases chances charts run on environments with little
-      # resources, such as Minikube. If you do want to specify resources, uncomment the following
-      # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-      # limits:
+      resources: { }
+        # We usually recommend not to specify default resources and to leave this as a conscious
+        # choice for the user. This also increases chances charts run on environments with little
+        # resources, such as Minikube. If you do want to specify resources, uncomment the following
+        # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+        # limits:
+        #   cpu: 100m
+      #   memory: 128Mi
+      # requests:
       #   cpu: 100m
-    #   memory: 128Mi
-    # requests:
-    #   cpu: 100m
-    #   memory: 128Mi
+      #   memory: 128Mi
 
-    autoscaling:
-      enabled: false
-      minReplicas: 1
-      maxReplicas: 100
-      targetCPUUtilizationPercentage: 80
-      # targetMemoryUtilizationPercentage: 80
-
-    nodeSelector: { }
-
-    tolerations: [ ]
-
-    affinity: { }
-
-    scaling:
-      enabled: false
-
-      worker:
-        count: 2
-        concurrency: 2
-
-      webhook:
+      autoscaling:
         enabled: false
-        count: 1
+        minReplicas: 1
+        maxReplicas: 100
+        targetCPUUtilizationPercentage: 80
+        # targetMemoryUtilizationPercentage: 80
+
+      nodeSelector: { }
+
+      tolerations: [ ]
+
+      affinity: { }
+
+      scaling:
+        enabled: false
+
+        worker:
+          count: 2
+          concurrency: 2
+
+        webhook:
+          enabled: false
+          count: 1
+
+        redis:
+          host:
+          password:
 
       redis:
-        host:
-        password:
-
-    redis:
-      enabled: false
-      # Other default redis values: https://github.com/bitnami/charts/blob/master/bitnami/redis/values.yaml
+        enabled: false
+        # Other default redis values: https://github.com/bitnami/charts/blob/master/bitnami/redis/values.yaml
