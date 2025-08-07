@@ -20,55 +20,56 @@ spec:
     - name: cloudflared
       namespace: network
   values:
-    # The n8n related part of the config
-    #config: # Dict with all n8n config options
-    #    database:
-    #      type: postgresdb
-    #      postgresdb:
-    #        database: n8n
-    #        host: localhost
-    #
-    # existingSecret and secret are exclusive, with existingSecret taking priority.
-    # existingSecret: "" # Use an existing Kubernetes secret, e.g created by hand or Vault operator.
-    #secret: # Dict with all n8n config options, unlike config the values here will end up in a secret.
-    #    database:
-    #      postgresdb:
-    #        password: here_db_root_password
+    main:
+      # The n8n related part of the config
+      #config: # Dict with all n8n config options
+      #    database:
+      #      type: postgresdb
+      #      postgresdb:
+      #        database: n8n
+      #        host: localhost
+      #
+      # existingSecret and secret are exclusive, with existingSecret taking priority.
+      # existingSecret: "" # Use an existing Kubernetes secret, e.g created by hand or Vault operator.
+      #secret: # Dict with all n8n config options, unlike config the values here will end up in a secret.
+      #    database:
+      #      postgresdb:
+      #        password: here_db_root_password
 
-    ##
-    ##
-    ## Common Kubernetes Config Settings
-    persistence:
-      ## If true, use a Persistent Volume Claim, If false, use emptyDir
       ##
-      enabled: true
-      # type: dynamic # what type volume, possible options are [existing, emptyDir, dynamic] dynamic for Dynamic Volume Provisioning, existing for using an existing Claim
-      ## Persistent Volume Storage Class
-      ## If defined, storageClassName: <storageClass>
-      ## If set to "-", storageClassName: "", which disables dynamic provisioning
-      ## If undefined (the default) or set to null, no storageClassName spec is
-      ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-      ##   GKE, AWS & OpenStack)
       ##
-      # storageClass: ""
-      ## PVC annotations
-      #
-      # If you need this annotation include it under values.yml file and pvc.yml template will add it.
-      # This is not maintained at Helm v3 anymore.
-      # https://github.com/8gears/n8n-helm-chart/issues/8
-      #
-      # annotations:
-      #   helm.sh/resource-policy: keep
-      ## Persistent Volume Access Mode
-      ##
-      accessModes:
-        - ReadWriteOnce
-      ## Persistent Volume size
-      ##
-      # size: 20Gi
-      ## Use an existing PVC
-      ##
-      existingClaim: n8n-data
+      ## Common Kubernetes Config Settings
+      persistence:
+        ## If true, use a Persistent Volume Claim, If false, use emptyDir
+        ##
+        enabled: true
+        # type: dynamic # what type volume, possible options are [existing, emptyDir, dynamic] dynamic for Dynamic Volume Provisioning, existing for using an existing Claim
+        ## Persistent Volume Storage Class
+        ## If defined, storageClassName: <storageClass>
+        ## If set to "-", storageClassName: "", which disables dynamic provisioning
+        ## If undefined (the default) or set to null, no storageClassName spec is
+        ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+        ##   GKE, AWS & OpenStack)
+        ##
+        # storageClass: ""
+        ## PVC annotations
+        #
+        # If you need this annotation include it under values.yml file and pvc.yml template will add it.
+        # This is not maintained at Helm v3 anymore.
+        # https://github.com/8gears/n8n-helm-chart/issues/8
+        #
+        # annotations:
+        #   helm.sh/resource-policy: keep
+        ## Persistent Volume Access Mode
+        ##
+        accessModes:
+          - ReadWriteOnce
+        ## Persistent Volume size
+        ##
+        # size: 20Gi
+        ## Use an existing PVC
+        ##
+        existingClaim: n8n-data
 
     # Set additional environment variables on the Deployment
     extraEnv: { }
