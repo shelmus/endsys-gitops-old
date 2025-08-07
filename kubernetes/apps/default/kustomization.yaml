@@ -5,7 +5,7 @@ kind: Kustomization
 namespace: default
 components:
   - ../../components/common
-resources:
+resources: []
   # - ./echo-server/ks.yaml
   # - ./pelican-panel/ks.yaml
   # - ./volsync-backups/ks.yaml
