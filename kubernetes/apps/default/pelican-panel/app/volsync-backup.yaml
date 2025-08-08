@@ -15,7 +15,7 @@ spec:
       hourly: 24
       daily: 7
       weekly: 4
-    pruneIntervalDays: 7
+    pruneIntervalDays: 3
 ---
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
@@ -33,4 +33,4 @@ spec:
       hourly: 24
       daily: 7
       weekly: 4
-    pruneIntervalDays: 7
+    pruneIntervalDays: 3
