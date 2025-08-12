@@ -30,7 +30,7 @@ spec:
       create: true
       name: nfs-csi
       parameters:
-        server: 10.0.0.5
+        server: 10.127.0.5
         share: /mnt/data0/kubernetes/
       mountOptions:
         - nfsvers=4.1
