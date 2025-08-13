@@ -6,7 +6,7 @@ talosVersion: v1.10.6
 kubernetesVersion: v1.33.3
 
 clusterName: kubernetes
-endpoint: https://10.0.0.40:6443
+endpoint: https://10.127.0.40:6443
 
 clusterPodNets:
   - "10.42.0.0/16"
@@ -15,7 +15,7 @@ clusterSvcNets:
 
 additionalApiServerCertSans: &sans
   - "127.0.0.1"
-  - "10.0.0.40"
+  - "10.127.0.40"
 additionalMachineCertSans: *sans
 
 # Disable built-in CNI to use Cilium
@@ -24,65 +24,65 @@ cniConfig:
 
 nodes:
   - hostname: "kube1"
-    ipAddress: "10.0.0.41"
+    ipAddress: "10.127.0.41"
     installDiskSelector:
-      wwid: "naa.500253885012c985"
+      serial: "t10.ATA     T-FORCE 256GB                           TPBF2303140030200083"
     machineSpec:
       secureboot: false
     talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
-          hardwareAddr: "90:e2:ba:1d:23:f0"
+          hardwareAddr: "6c:4b:90:52:1f:3c"
         dhcp: false
         addresses:
-          - "10.0.0.41/23"
+          - "10.127.0.41/24"
         routes:
           - network: "0.0.0.0/0"
-            gateway: "10.0.0.1"
-        mtu: 9000
+            gateway: "10.127.0.1"
+        mtu: 1500
         vip:
-          ip: "10.0.0.40"
+          ip: "10.127.0.40"
   - hostname: "kube2"
-    ipAddress: "10.0.0.42"
+    ipAddress: "10.127.0.42"
     installDiskSelector:
-      wwid: "naa.500253885012cc07"
+      serial: "t10.ATA     T-FORCE 256GB                           TPBF2303140030200286"
     machineSpec:
       secureboot: false
     talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
-          hardwareAddr: "a0:36:9f:a4:06:d8"
+          hardwareAddr: "6c:4b:90:50:ff:a3"
         dhcp: false
         addresses:
-          - "10.0.0.42/23"
+          - "10.127.0.42/24"
         routes:
           - network: "0.0.0.0/0"
-            gateway: "10.0.0.1"
-        mtu: 9000
+            gateway: "10.127.0.1"
+        mtu: 1500
         vip:
-          ip: "10.0.0.40"
+          ip: "10.127.0.40"
   - hostname: "kube3"
-    ipAddress: "10.0.0.43"
+    ipAddress: "10.127.0.43"
     installDiskSelector:
-      wwid: "naa.50025385002046dc"
+      serial: "t10.ATA     T-FORCE 256GB                           TPBF2305080010405205"
     machineSpec:
       secureboot: false
     talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
-          hardwareAddr: "a0:36:9f:6e:bc:14"
+          hardwareAddr: "00:23:24:f2:35:02"
         dhcp: false
         addresses:
-          - "10.0.0.43/23"
+          - "10.127.0.43/24"
         routes:
           - network: "0.0.0.0/0"
-            gateway: "10.0.0.1"
-        mtu: 9000
+            gateway: "10.127.0.1"
+        mtu: 1500
         vip:
-          ip: "10.0.0.40"
+          ip: "10.127.0.40"
 
 # Global patches
 patches:

@@ -29,6 +29,6 @@ spec:
       type: LoadBalancer
       port: 53
       annotations:
-        lbipam.cilium.io/ips: "10.127.0.45"
+        lbipam.cilium.io/ips: "10.127.0.46"
       externalTrafficPolicy: Cluster
     watchedResources: ["Ingress", "Service"]

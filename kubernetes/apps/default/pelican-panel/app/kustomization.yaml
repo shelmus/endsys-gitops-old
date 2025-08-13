@@ -17,4 +17,4 @@ resources:
   - ./pelican-ingress.yaml
   - ./configmap.yaml
   - ./secret.sops.yaml
-  - ./volsync-backup.yaml
+  # - ./volsync-backup.yaml
