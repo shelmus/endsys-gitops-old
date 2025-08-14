@@ -26,7 +26,7 @@ nodes:
   - hostname: "kube1"
     ipAddress: "10.127.0.41"
     installDiskSelector:
-      serial: "t10.ATA     T-FORCE 256GB                           TPBF2303140030200083"
+      busPath: "/pci0000:00/0000:00:17.0/ata1/host1/target1:0:0/1:0:0:0"
     machineSpec:
       secureboot: false
     talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
@@ -46,7 +46,7 @@ nodes:
   - hostname: "kube2"
     ipAddress: "10.127.0.42"
     installDiskSelector:
-      serial: "t10.ATA     T-FORCE 256GB                           TPBF2303140030200286"
+      busPath: "/pci0000:00/0000:00:17.0/ata1/host1/target1:0:0/1:0:0:0"
     machineSpec:
       secureboot: false
     talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
@@ -66,7 +66,7 @@ nodes:
   - hostname: "kube3"
     ipAddress: "10.127.0.43"
     installDiskSelector:
-      serial: "t10.ATA     T-FORCE 256GB                           TPBF2305080010405205"
+      busPath: "/pci0000:00/0000:00:17.0/ata1/host1/target1:0:0/1:0:0:0"
     machineSpec:
       secureboot: false
     talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
